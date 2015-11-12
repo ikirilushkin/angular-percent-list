@@ -1,0 +1,23 @@
+{
+  "name": "angular-percent-list",
+  "authors": [
+    "Ilya Kirilushkin <ilya.kirilushkin@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angularjs-slider": "~1.1.0",
+    "components-font-awesome": "~4.4.0"
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.min.css"/>
+    <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/style.css"/>
+    <title>Angular Percent Range</title>
+</head>
+<body ng-controller="MainController as main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Angular Percent Range</h2>
+            </div>
+            <div class="col-lg-12">
+                <button class="btn btn-primary mr-15 mb-15" ng-repeat="n in [1, 2, 3, 4, 5]" ng-click="main.getItems(n)">{{n | decl: ['элемент', 'элемента', 'элементов']}}</button>
+            </div>
+            <div class="col-lg-12 sliders-container">
+                <div class="row" ng-repeat="i in main.items">
+                    <div class="col-lg-1">
+                        <p>{{i.name}}</p>
+                    </div>
+                    <div class="col-lg-9">
+                        <rzslider
+                                rz-slider-floor="0"
+                                rz-slider-ceil="100"
+                                rz-slider-model="i.percent"
+                                rz-slider-step="0.01"
+                                rz-slider-precision="2"
+                                rz-slider-on-change="main.onChange($index)"></rzslider>
+                    </div>
+                    <div class="col-lg-2">
+                        <div spinner="i.percent" max="100" min="0" on-change="main.onChange($index)" step="0.01"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <p>Результат:</p>
+                <div ng-repeat="i in main.items">
+                    <p>
+                        <span>{{i.name}}</span>: <span>{{i.percent}}%</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angularjs-slider/dist/rzslider.min.js"></script>
+<script src="scripts/spinner.js"></script>
+<script src="scripts/app.js"></script>
+</html>
